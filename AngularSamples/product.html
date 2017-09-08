@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Angular JS Example ::</title>
+	<link rel="stylesheet" href="design.css">
+	<script src="angular.min.js"></script>
+</head>
+<body >
+<h1>Online Shop App</h1>
+<div ng-app>
+<select ng-model="sort">
+	<option >price</option>
+	<option >name</option>
+</select>
+<input type="text" placeholder="Type to Search" ng-model="search.price">
+<ul ng-init="products={'mobiles':[{'id':3,'name':'Samsung ','price':30000,'shipping':'India','vendor':'Samsung Stores','inStock':'Y','image':'https://4.imimg.com/data4/WH/JT/MY-13223178/samsung-mobile-500x500.jpg'},{'id':2,'name':'Nokia ','price':10000,'shipping':'India','vendor':'Nokia Stores','inStock':'N','image':'http://cdn-a2.buildabazaar.com/img/othe/5501214/75/86/nokialumia630dualsimyellow.jpg.784cf17586.999x200x200.jpg'},{'id':1,'name':'Apple 5s','price':20000,'shipping':'China','vendor':'Apple Stores','inStock':'Y','image':'https://assets.ec.quoracdn.net/main-thumb-t-965-200-eskvgzdvwmrcnhylzyjaqfmpsjlrazhl.jpeg'}]}">
+	
+	<li ng-repeat="product in products.mobiles|filter:search|orderBy:sort">
+	<img class="mystyle" ng-src="{{product.image}}">
+		{{product.id}} {{product.name|uppercase}} {{product.price|currency}}
+	</li>
+</ul>	
+</div>
+<div>
+	
+</div>	
+</body>
+</html>
